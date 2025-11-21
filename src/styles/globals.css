@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom */
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg,#f8fafc 0%, #ffffff 100%);
+  color: #0b1220;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* subtle card */
+.card {
+  @apply bg-white shadow-lg rounded-2xl p-6;
+}
+
+/* small animation */
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+.floaty {
+  animation: floaty 4s ease-in-out infinite;
+}
