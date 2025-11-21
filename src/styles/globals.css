@@ -2,29 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* custom */
-html, body, #__next {
-  height: 100%;
+/* color tokens */
+:root {
+  --bg: #f8fafc;
+  --text: #0b1220;
+  --accent: #06b6d4;
+  --card: #ffffff;
 }
 
-body {
-  background: linear-gradient(180deg,#f8fafc 0%, #ffffff 100%);
-  color: #0b1220;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.dark {
+  --bg: #071023;
+  --text: #e6eef6;
+  --accent: #06b6d4;
+  --card: #0b1220;
 }
 
-/* subtle card */
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* use tokens */
+.bg-accent { background: var(--accent); }
+.text-accent { color: var(--accent); }
 .card {
-  @apply bg-white shadow-lg rounded-2xl p-6;
+  background: var(--card);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
 }
 
-/* small animation */
+/* apply tokens */
+html{ background: var(--bg); color: var(--text); }
+.bg-accent{ background: var(--accent); }
+.text-accent{ color: var(--accent); }
+
+/* card */
+.card {
+  @apply bg-white dark:bg-slate-900 shadow-lg rounded-2xl p-6;
+}
+
+/* floaty */
 @keyframes floaty {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-6px); }
   100% { transform: translateY(0px); }
 }
-.floaty {
-  animation: floaty 4s ease-in-out infinite;
+.floaty { animation: floaty 4s ease-in-out infinite; }
+
+/* focus visible */
+:root, * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.using-mouse :focus { outline: none; }
+
+/* custom cursor */
+.custom-cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: var(--accent);
+  mix-blend-mode: difference;
+  z-index: 9999;
+  transition: transform .12s ease, width .12s ease, height .12s ease, opacity .12s;
 }
+
+/* small utility for translucent backgrounds */
+.bg-white\/80 { background-color: rgba(255,255,255,0.8); }

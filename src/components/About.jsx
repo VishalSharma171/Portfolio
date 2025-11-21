@@ -16,7 +16,7 @@ export default function About() {
           <div>
             <strong>Work</strong>
             <div>4Good.AI — Full Stack Developer Intern</div>
-            <div>Injala — Software Developer Intern</div>
+            <div>Injala — Software Developer</div>
           </div>
         </div>
       </div>
