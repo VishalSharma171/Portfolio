@@ -35,7 +35,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-6">
           <Link href="/about" className="hover:underline focus:outline-none focus:ring-2 focus:ring-accent/40 rounded">About</Link>
-          <Link href="/projects" className="hover:underline focus:outline-none focus:ring-2 focus:ring-accent/40 rounded">Projects</Link>
+          <Link href="/projects" className="hover:underline focus:outline-none focus:ring-2 focus:ring-accent/30 rounded">Projects</Link>
           <Link href="/contact" className="hover:underline focus:outline-none focus:ring-2 focus:ring-accent/40 rounded">Contact</Link>
 
           <a href="/resume.pdf" download className="px-4 py-2 bg-accent text-white rounded-full shadow-sm hover:translate-y-[-2px] transition-transform">

@@ -9,7 +9,7 @@ export default function ContactPage() {
       <main className="pt-6">
         <Contact />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -1,3 +1,4 @@
+// src/pages/_document.jsx
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
@@ -5,15 +6,16 @@ class MyDocument extends Document {
     const setInitialTheme = `
       (function() {
         try {
-          var t = localStorage.getItem('theme');
-          if (t === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else if (t === 'light') {
+          var saved = localStorage.getItem('theme');
+          if (saved === 'light') {
+            // user explicitly chose light before, keep light
             document.documentElement.classList.remove('dark');
+          } else if (saved === 'dark') {
+            // user explicitly chose dark before
+            document.documentElement.classList.add('dark');
           } else {
-            // no saved preference -> use system pref
-            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) document.documentElement.classList.add('dark');
+            // NO saved preference -> default to DARK
+            document.documentElement.classList.add('dark');
           }
         } catch (e) { /* ignore */ }
       })();
@@ -22,7 +24,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <body>
-          {/* Inject script early so theme class is set before React loads */}
           <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
           <Main />
           <NextScript />

@@ -33,6 +33,58 @@ html, body {
   padding: 1.5rem;
 }
 
+/* GLASS style card */
+.glass-card {
+  @apply bg-white/60 dark:bg-slate-800/50 rounded-xl p-4 shadow-md border border-white/30;
+  backdrop-filter: blur(6px);
+}
+
+/* small utility for hover tilt */
+.card {
+  transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
+}
+
+/* tiny blinking cursor */
+.blink {
+  display:inline-block;
+  width:10px;
+  animation: blink 1s steps(2,end) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+/* clamp fallback if tailwind plugin not present */
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* improved shadow and focus for buttons */
+a[download], .btn {
+  transition: transform .18s, box-shadow .18s;
+}
+a[download]:hover, .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(2,6,23,0.12); }
+
+/* small project preview on hover (optional) */
+/* (we manage preview with image & modal, so keep CSS minimal) */
+
+/* persistent blinking cursor */
+.blink {
+  display: inline-block;
+  margin-left: 6px;
+  width: 14px;
+  animation: blink 1s steps(2, start) infinite;
+  color: inherit;
+  vertical-align: middle;
+  transform: translateY(-2px);
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 /* apply tokens */
 html{ background: var(--bg); color: var(--text); }
 .bg-accent{ background: var(--accent); }

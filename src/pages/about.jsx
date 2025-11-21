@@ -9,7 +9,7 @@ export default function AboutPage() {
       <main className="pt-6">
         <About />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
